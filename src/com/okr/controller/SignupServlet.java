@@ -41,7 +41,8 @@ public class SignupServlet extends HttpServlet {
 				System.out.println(user.toString());
 			}
 			
-			request.getRequestDispatcher("views/welcome.jsp");
+			request.setAttribute("email", request.getParameter("email"));			
+			requestDispatcher = request.getRequestDispatcher("views/login.jsp");
 			
 		}else {
 			System.out.println("nok");

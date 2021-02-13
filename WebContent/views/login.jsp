@@ -12,7 +12,7 @@
 	<h1>Login </h1>
 	
 	<form action="">
-		E-mail: <input type="text" name="email"> <br>
+		E-mail: <input type="text" name="email" value="${email}"> <br>
 		Password: <input type="password" name="password"> <br>
 		<a href="${linkBack}">Back</a> 
 		<input type="submit" value="Login">
