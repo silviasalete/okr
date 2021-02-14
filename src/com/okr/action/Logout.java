@@ -16,7 +16,7 @@ public class Logout implements Action {
 
 		request.getSession().invalidate();
 		
-		return "redirect:?action=Home";
+		return "redirect:?action=LoginForm";
 	}
 
 }
