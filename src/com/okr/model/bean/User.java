@@ -6,6 +6,10 @@ public class User {
 	private String email;
 	private String password;
 
+	public User() {
+		super();
+	}
+
 	public User(String name, String email, String password) {
 		setName(name);
 		setEmail(email);

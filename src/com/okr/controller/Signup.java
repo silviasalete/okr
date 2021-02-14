@@ -14,7 +14,7 @@ import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
 
 @WebServlet("/signup")
-public class SignupServlet extends HttpServlet {
+public class Signup extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L; 
 

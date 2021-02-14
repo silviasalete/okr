@@ -2,8 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="/"       var="linkBack"/>
-<c:url value="/login"  var="linkLogin"/>
-<c:url value="/signup" var="signup"/>
+<c:url value="/?action=LoginForm"  var="linkLogin"/>
+<c:url value="/?action=Signup" var="signup"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +16,7 @@
 	<form action="${signup}" method="post">
 		Name: <input type="text" name="name"> <br>
 		E-mail: <input type="text" name="email"> <br>
-		Password: <input type="password" name="password"> <br>
+		Password: <input type="password" name="password" value="123"> <br>
 		<a href="${linkBack}">Back</a> 
 		<input type="submit" value="Signup">
 	</form>
