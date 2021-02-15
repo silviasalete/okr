@@ -29,7 +29,6 @@ public class Login implements Action {
 					   redirect = "redirect:?action=Welcome";		
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			System.out.println("session.getId(): "+session.getId());
 		}
 		
 		return redirect;

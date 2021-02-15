@@ -17,12 +17,11 @@ public class Signup implements Action {
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(this.getClass());
-		
 		DataBase dataBase = new DataBase();
 		String    retorno = "redirect:?action=SignupForm";
+		int sequencialKey = (int) Math.random();
 		
-		if (dataBase.addListUser(new User(request.getParameter("name"),request.getParameter("email"),request.getParameter("password")))) {
+		if (dataBase.addListUser(new User(sequencialKey,request.getParameter("name"),request.getParameter("email"),request.getParameter("password")))) {
 
 			List<User> listUser = dataBase.getListUser();			
 			User 		  userA = new User();

@@ -2,6 +2,7 @@ package com.okr.model.bean;
 
 public class User {
 
+	private    int id;
 	private String name;
 	private String email;
 	private String password;
@@ -10,12 +11,28 @@ public class User {
 		super();
 	}
 
-	public User(String name, String email, String password) {
+	public User(int id, String name, String email, String password) {
+		setId(id);
+		setName(name);
+		setEmail(email);
+		setPassword(password);
+	}	
+
+	public User(String name, String email, String password) { 
+		setId((int) (Math.random() * 100));
 		setName(name);
 		setEmail(email);
 		setPassword(password);
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -37,8 +54,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
-	
 	
 }

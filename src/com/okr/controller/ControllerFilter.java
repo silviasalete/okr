@@ -18,34 +18,34 @@ public class ControllerFilter implements Filter{
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-		
-		System.out.println(this.getClass());
-		
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws NullPointerException, IOException, ServletException {
+				
 		HttpServletRequest   request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		
 		String parameter = request.getParameter("action") == null ? "Home" :request.getParameter("action");		
-		String      view;
+		String      view = null;
 
 			try {
-				
+				System.out.println("parameter: "+parameter);
 				Class  parameterClass = Class.forName("com.okr.action."+parameter);
 				Object    object = parameterClass.newInstance();
 				Action    action = (Action) object;
 				view = action.performe(request, response);
 				
-			} catch (Exception e) {
+			} catch (ServletException e) {
 				
-				System.out.println("ERROR4: "+e.getMessage());
+				System.out.println("ERROR4 ServletException: "+e.getMessage());
 				
-				throw new ServletException();
+//				throw new ServletException();
 				
+			} catch(Exception e){
+
+				System.out.println("ERROR6 Exception: "+e.getMessage());
 			}
 			
 			String[] destinationType = view.split(":");
@@ -66,7 +66,6 @@ public class ControllerFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
 		
 	}
 
