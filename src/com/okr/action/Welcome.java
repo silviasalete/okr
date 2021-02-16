@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.okr.controller.Action;
-import com.okr.model.bean.Goal;
+import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
 
@@ -21,9 +21,9 @@ public class Welcome implements Action {
 		DataBase   dataBase = new DataBase();
 		HttpSession session = request.getSession();
 		User 		   user = (User) session.getAttribute("user");
-		List<Goal> listGoal = dataBase.getListGoalByUser(user);
+		List<Objective> listObjective = dataBase.getListObjectiveByUser(user);
 		
-		request.setAttribute("listGoal", listGoal);
+		request.setAttribute("listObjective", listObjective);
 		
 		return "forward:welcome.jsp";
 	}

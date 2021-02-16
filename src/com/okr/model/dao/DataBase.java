@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.okr.model.bean.Goal;
-import com.okr.model.bean.ResultKey;
+import com.okr.model.bean.Objective;
+import com.okr.model.bean.KeyResult;
 import com.okr.model.bean.User;
 
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -13,8 +13,8 @@ import jdk.nashorn.internal.runtime.ListAdapter;
 public class DataBase {
 
 	private static List<User> listUser = new ArrayList<>();
-	private static List<Goal> listGoal = new ArrayList<>();
-	private static List<ResultKey> listResultKey = new ArrayList<>();
+	private static List<Objective> listObjective = new ArrayList<>();
+	private static List<KeyResult> listKeyResult = new ArrayList<>();
 	private static int sequencialKeyUser = 1;
 	
 	static { 
@@ -25,18 +25,18 @@ public class DataBase {
 		listUser.add(userFirst);
 		listUser.add(usersecond);
 		
-		Goal  goalFirst = new Goal("Concluir a formação Spring Framework da Alura", userFirst);
-		Goal goalSecond = new Goal("Concluir a formação Anglular da Alura", usersecond);
-		Goal  goalThird = new Goal("Concluir a formação Anglular da NodeJS", usersecond);
+		Objective  objectiveFirst = new Objective("Concluir a formação Spring Framework da Alura", userFirst);
+		Objective objectiveSecond = new Objective("Concluir a formação Anglular da Alura", usersecond);
+		Objective  objectiveThird = new Objective("Concluir a formação Anglular da NodeJS", usersecond);
 		
-		listGoal.add(goalFirst);
-		listGoal.add(goalSecond);
-		listGoal.add(goalThird);
+		listObjective.add(objectiveFirst);
+		listObjective.add(objectiveSecond);
+		listObjective.add(objectiveThird);
 		
-		ResultKey resultKeyFirst = new ResultKey("Concluir 2 cursos de Servlet", goalFirst.getId(), goalFirst.getUser());
+		KeyResult keyResultFirst = new KeyResult("Concluir 2 cursos de Servlet", objectiveFirst.getId(), objectiveFirst.getUser());
 		
-		listResultKey.add(resultKeyFirst);
-		goalFirst.setListResultKey(listResultKey);
+		listKeyResult.add(keyResultFirst);
+		objectiveFirst.setListKeyResult(listKeyResult);
 	}
 	
 //	====================== USER ========================
@@ -64,26 +64,26 @@ public class DataBase {
 		
 		return user;
 	}
-//	====================== GOAL ========================
+//	====================== OBJECTIVE ========================
 
-	public List<Goal> getListGoal() {
-		return listGoal;
+	public List<Objective> getListObjective() {
+		return listObjective;
 	}
 
-	public List<Goal> getListGoalByUser(User user) {
+	public List<Objective> getListObjectiveByUser(User user) {
 
-		List<Goal> listGoalReturn = new ArrayList<>();
+		List<Objective> listObjectiveReturn = new ArrayList<>();
 	
-		for (Goal goal : listGoal) {
+		for (Objective objective : listObjective) {
 
-			if (goal.getUser().equals(user)) {
+			if (objective.getUser().equals(user)) {
 
-				listGoalReturn.add(goal);
+				listObjectiveReturn.add(objective);
 				
 			}
 		}
 
-		return listGoalReturn;
+		return listObjectiveReturn;
 	}
 
 	public User getUserById(int id) {
@@ -96,60 +96,105 @@ public class DataBase {
 		return user;
 	}
 
-	public boolean addListGoal(Goal goal) {
+	public boolean addListObjective(Objective objective) {
 		
-		return listGoal.add(goal);
+		return listObjective.add(objective);
 		
 	}
 
-	public Goal getGoalById(int id) {
-		Goal goal = null;
-		for (Goal goalItem : listGoal) {
-			if (goalItem.getId() == id) {
-				goal = goalItem;
+	public Objective getObjectiveById(int id) {
+		Objective objective = null;
+		for (Objective objectiveItem : listObjective) {
+			if (objectiveItem.getId() == id) {
+				objective = objectiveItem;
 			}
 		}
-		return goal;
+		return objective;
 	}
 
-	public boolean updateGoal(Goal goalParameter) {
+	public boolean updateObjective(Objective objectiveParameter) {
 		
-		boolean goalUpdated = false;
+		boolean objectiveUpdated = false;
 		
-		for (Goal goalItem : listGoal) {
+		for (Objective objectiveItem : listObjective) {
 			
-			if (goalItem.getId() == goalParameter.getId()) {
+			if (objectiveItem.getId() == objectiveParameter.getId()) {
 				
-				goalItem = goalParameter;
-				goalUpdated = true;
+				objectiveItem = objectiveParameter;
+				objectiveUpdated = true;
 			}
 		}
-		return goalUpdated ;
+		return objectiveUpdated ;
 	}
 
-	public boolean removeGoal(int idGoal, int idUser) {
-		boolean removedGoal = false;
-		Iterator<Goal> iterator = listGoal.iterator();
+	public boolean removeObjective(int idObjective, int idUser) {
+		boolean removedObjective = false;
+		Iterator<Objective> iterator = listObjective.iterator();
 		
 		while (iterator.hasNext()) {
-			Goal goal = (Goal) iterator.next();
-			if ((goal.getId() == idGoal) && (goal.getUser().getId() == idUser)) {
+			Objective objective = (Objective) iterator.next();
+			if ((objective.getId() == idObjective) && (objective.getUser().getId() == idUser)) {
 				iterator.remove();
-				removedGoal = true;
+				removedObjective = true;
 			}
 		}
 		
-		return removedGoal;
+		return removedObjective;
+	}
+	
+	// =================================== KEY RESULT =================================
+
+	public boolean addListKeyResult(KeyResult keyResult) {
+
+		boolean keyResultAdd = listKeyResult.add(keyResult);
+
+		Objective objective = getObjectiveById(keyResult.getIdObjective());
+		objective.setListKeyResult(listKeyResult);
+
+		return keyResultAdd;
+	}
+	
+	public KeyResult getKeyResultById(int id) {
+		
+		KeyResult keyResult = null;
+		
+		for (KeyResult keyResultItem : listKeyResult) {
+			
+			if (keyResultItem.getId() == id) {
+				
+				keyResult = keyResultItem;
+			}
+		}
+		
+		return keyResult;
 	}
 
-	public boolean addListResultKey(ResultKey resultKey) {
+	public boolean updateKeyResult(KeyResult keyResult) {
+		boolean updatedKeyResult = false;
+		for (KeyResult keyResultItem : listKeyResult) {
+			if (keyResultItem.getId() == keyResult.getId()) {
+				keyResultItem = keyResult;
+				updatedKeyResult = true;
+			}
+		}
+		return updatedKeyResult;
+	}
 
-		boolean resultKeyAdd = listResultKey.add(resultKey);
+	public boolean removeKeyResult(int id, User user) {
+		
+		Iterator<KeyResult> iterator = listKeyResult.iterator();		
+		boolean 	removedKeyResult = false;
+		
+		while(iterator.hasNext()) {
 
-		Goal goal = getGoalById(resultKey.getIdGoal());
-		goal.setListResultKey(listResultKey);
-
-		return resultKeyAdd;
+			KeyResult keyResult = (KeyResult) iterator.next();
+			
+			if ((keyResult.getId() == id) && (keyResult.getUser().getId() == user.getId())) {
+				 iterator.remove();	
+				removedKeyResult = true;
+			}
+		}
+		return removedKeyResult ;
 	}
 
 }

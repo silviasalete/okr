@@ -7,22 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
-import com.okr.model.bean.ResultKey;
+import com.okr.model.bean.KeyResult;
 import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
 
-public class NewResultKey implements Action {
+public class NewKeyResult implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String 		idUser = request.getParameter("userId");
-		String 	    idGoal = request.getParameter("idGoal");
+		String 	    idObjective = request.getParameter("idObjective");
 		String description = request.getParameter("description");
 		DataBase  dataBase = new DataBase();
 		User 		  user = dataBase.getUserById(Integer.parseInt(idUser));		
-		ResultKey resultKey = new ResultKey(description, Integer.parseInt(idGoal), user); 
-		return dataBase.addListResultKey(resultKey)?"redirect:?action=Welcome":"redirect:?action=ResultKeyForm";
+		KeyResult keyResult = new KeyResult(description, Integer.parseInt(idObjective), user); 
+		return dataBase.addListKeyResult(keyResult)?"redirect:?action=Welcome":"redirect:?action=KeyResultForm";
 	}
 
 }

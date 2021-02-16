@@ -31,7 +31,7 @@ public class ControllerFilter implements Filter{
 		String      view = null;
 
 			try {
-				System.out.println("parameter: "+parameter);
+
 				Class  parameterClass = Class.forName("com.okr.action."+parameter);
 				Object    object = parameterClass.newInstance();
 				Action    action = (Action) object;

@@ -1,17 +1,17 @@
 package com.okr.model.bean;
 
-public class ResultKey {
+public class KeyResult {
 
 	int id;
 	String description;
-	int idGoal;
+	int idObjective;
 	User user;
 
-	public ResultKey(String description, int idGoal, User user) {
+	public KeyResult(String description, int idObjective, User user) {
 		super();
 		this.id = (int) (Math.random()*100);
 		this.description = description;
-		this.idGoal = idGoal;
+		this.idObjective = idObjective;
 		this.user = user;
 	}
 	public int getId() {
@@ -26,11 +26,11 @@ public class ResultKey {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getIdGoal() {
-		return idGoal;
+	public int getIdObjective() {
+		return idObjective;
 	}
-	public void setIdGoal(int idGoal) {
-		this.idGoal = idGoal;
+	public void setIdObjective(int idObjective) {
+		this.idObjective = idObjective;
 	}
 	public User getUser() {
 		return user;
@@ -40,6 +40,6 @@ public class ResultKey {
 	}
 	@Override
 	public String toString() {
-		return "ResultKey [id=" + id + ", description=" + description + ", idGoal=" + idGoal + ", user=" + user + "]";
+		return "KeyResult [id=" + id + ", description=" + description + ", idObjective=" + idObjective + ", user=" + user + "]";
 	}
 }

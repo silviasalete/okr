@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.okr.controller.Action;
 import com.okr.model.bean.User;
 
-public class GoalForm implements Action {
+public class ObjectiveForm implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class GoalForm implements Action {
 		User 	 	   user = (User) request.getSession().getAttribute("user");
 		request.setAttribute("userId", user.getId());
 		
-		return "forward:goal.jsp";
+		return "forward:objective.jsp";
 	}
 
 }

@@ -10,26 +10,18 @@ import com.okr.controller.Action;
 import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
 
-public class GoalDelete implements Action {
+public class KeyResultDelete implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int idGoal = Integer.parseInt(request.getParameter("id"));
-		User  user = (User) request.getSession().getAttribute("user"); 		
-		int idUser = user.getId();
-		
 		DataBase dataBase = new DataBase();
-
-		if (dataBase.removeGoal(idGoal, idUser)) {
-			
-			request.setAttribute("message", "Goal Removed!");
-		}else {
-			
-			request.setAttribute("message", "Error when remove goal!");
+		User user = (User) request.getSession().getAttribute("user");
+		String message = "Error when delete Key Result";
+		if (dataBase.removeKeyResult(Integer.parseInt(request.getParameter("id")),user)) {
+			message = "Success when delete Key Result!";
 		}
-		
-		return "redirect:?action=Welcome";
+		request.setAttribute("message", message);
+		return "redirect:?action=Welcome"; 
 	}
 
 }

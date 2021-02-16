@@ -7,20 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
+import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
+import com.okr.model.dao.DataBase;
 
-public class ResultKeyForm implements Action {
+public class ObjectiveFormUpdate implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String idGoal = request.getParameter("id");
-		User 	 user = (User) request.getSession().getAttribute("user");
+		User 	 	   user = (User) request.getSession().getAttribute("user");
+		DataBase   database = new DataBase();
+		Objective 		   objective = database.getObjectiveById(Integer.parseInt(request.getParameter("id")));
 		
 		request.setAttribute("userId", user.getId());
-		request.setAttribute("idGoal", idGoal);
+		request.setAttribute("objective", objective);
 		
-		return "forward:resultKey.jsp";
+		return "forward:objectiveUpdate.jsp";
 	}
 
 }

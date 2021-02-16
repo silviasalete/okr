@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
-import com.okr.model.bean.Goal;
+import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
 
-public class NewGoal implements Action {
+public class NewObjective implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,10 +20,10 @@ public class NewGoal implements Action {
 		String       userId = request.getParameter("userId");
 		DataBase   dataBase = new DataBase();
 		User 		   user = dataBase.getUserById(Integer.parseInt(userId));
-		Goal 		   goal = new Goal(description, user);
-		boolean goalCreated = dataBase.addListGoal(goal);
+		Objective 		   objective = new Objective(description, user);
+		boolean objectiveCreated = dataBase.addListObjective(objective);
 		
-		String retorno = goalCreated?"redirect:?action=Welcome":"redirect:?action=GoalForm";
+		String retorno = objectiveCreated?"redirect:?action=Welcome":"redirect:?action=ObjectiveForm";
 		return retorno;
 		 
 	}

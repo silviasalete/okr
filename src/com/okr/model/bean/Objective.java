@@ -3,14 +3,14 @@ package com.okr.model.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Goal {
+public class Objective {
 
 	int 			id;
 	String description;
 	User 		  user;
-	List<ResultKey> listResultKey = new ArrayList<>();
+	List<KeyResult> listKeyResult = new ArrayList<>();
 
-	public Goal(String description, User user) {
+	public Objective(String description, User user) {
 		super();
 		this.id = (int) (Math.random() * 100);
 		this.description = description;
@@ -41,17 +41,17 @@ public class Goal {
 		this.user = user;
 	}
 	
-	public List<ResultKey> getListResultKey() {
-		return listResultKey;
+	public List<KeyResult> getListKeyResult() {
+		return listKeyResult;
 	}
 
-	public void setListResultKey(List<ResultKey> listResultKey) {
-		this.listResultKey = listResultKey;
+	public void setListKeyResult(List<KeyResult> listKeyResult) {
+		this.listKeyResult = listKeyResult;
 	}
 
 	@Override
 	public String toString() {
-		return "Goal [id=" + id + ", description=" + description + ", user=" + user + "]";
+		return "Objective [id=" + id + ", description=" + description + ", user=" + user + "]";
 	}
 	
 }
