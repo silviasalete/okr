@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:import url="header.jsp"></c:import>
 <c:url value="/?action=ObjectiveForm" 		var="linkObjectiveForm"/>
 <c:url value="/?action=ObjectiveFormUpdate" var="linkObjectiveFormUpdate"/>
 <c:url value="/?action=ObjectiveDelete" 	var="linkObjectiveDelete"/>
@@ -8,14 +9,22 @@
 <c:url value="/?action=KeyResultFormUpdate" var="linkKeyResultFormUpdate"/>
 <c:url value="/?action=KeyResultDelete" 	var="linkKeyResultDelete"/>
 <c:url value="/?action=StrategyForm" 		var="linkStrategyForm"/>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
-</head>
-<body>
-	<h2>Welcome ${user.name}!</h2>
+<c:import url="header.jsp"></c:import>
+
+<div class="container">
+
+	<nav class="navbar navbar-light">
+		<div class="navbar-brand">
+			<a href="#">
+				<img src="img/alvo72x76.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+			</a>
+			<a href=""><i class="fa fa-power-off" aria-hidden="true"></i>
+			</a>
+		</div>
+	</nav>
+	<span class="text-right">Welcome <b>${user.name}</b>!</span>
+
+	<hr>
 	<h5>${message}</h5>
 	<a href="${linkObjectiveForm}">New</a>
 	<c:import url="logout-partial.jsp"></c:import>
@@ -31,13 +40,13 @@
 						<li>
 							#${keyResult.id}: ${keyResult.description}
 							<a href="${linkKeyResultFormUpdate}&id=${keyResult.id}">Edit		</a> | 
-							<a href="${linkKeyResultDelete}&id=${keyResult.id}">	Delete		</a> | 
-							<a href="${linkStrategyForm}&id=${keyResult.id}">		New Strategy</a> 
+							<a href="${linkKeyResultDelete}&id=${keyResult.id}">	Delete		</a>
 						</li>
 					</c:forEach>
 				</ul>
 			</li>
 		</c:forEach>
 	</ul>
-</body>
-</html>
+</div>
+
+<c:import url="footer.jsp"></c:import>
