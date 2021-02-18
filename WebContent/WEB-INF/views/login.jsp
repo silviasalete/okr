@@ -3,6 +3,7 @@
 
 <c:url  value="/?action=Login" var="linkLogin"/>
 <c:url  value="/?action=Home" var="linkBack"/>
+<c:url value="/?action=SignupForm" var="linkSignup"/>
 <c:url  value="eua.png" var="linkLogo"/>
 <c:import url="header.jsp"></c:import>
 
@@ -29,7 +30,7 @@
 			</div>
 			<input type="password" class="form-control" id="inlineFormInputGroup" placeholder="*****"  name="password">
 		</div>
-
+		Don't have a login? <a href="${linkSignup}" >Register</a> <br>
 		<button type="submit" class="btn btn-primary">Login</button>
 	</form>
 	

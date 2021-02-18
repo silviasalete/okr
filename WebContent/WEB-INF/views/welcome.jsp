@@ -48,7 +48,6 @@
 			<div class="card-header"><i class="fa fa-key" aria-hidden="true"></i></div>
 			<div class="card-body">
 			  <h5 class="card-title">Key Result ${keyResult.id}</h5>
-			  <a href="${linkKeyResultForm}&id=${objective.id}" class="btn btn-outline-light"><i class="fa fa-plus" aria-hidden="true"></i>New</a>
 			  <p class="card-text">${keyResult.description}</p>			  
 			</div>
 			<div class="card-footer text-right">
@@ -57,6 +56,7 @@
 			</div>
 		  </div>
 		  </c:forEach>
+		  <a href="${linkKeyResultForm}&id=${objective.id}" class="btn btn-outline-dark"><i class="fa fa-plus" aria-hidden="true"></i>New</a>
 
 		</div>
 		<div class="card-footer text-right">
@@ -64,6 +64,7 @@
 			<a href="${linkObjectiveDelete}&id=${objective.id}"     class="btn btn-outline-dark"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 		</div>
 	  </div>
+	  <br>
 	</c:forEach>
 </div>
 
