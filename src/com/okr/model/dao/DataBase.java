@@ -39,7 +39,6 @@ public class DataBase {
 		objectiveFirst.setListKeyResult(listKeyResult);
 	}
 	
-//	====================== USER ========================
 	public boolean addListUser(User user) {
 		
 		return listUser.add(user);
@@ -64,7 +63,6 @@ public class DataBase {
 		
 		return user;
 	}
-//	====================== OBJECTIVE ========================
 
 	public List<Objective> getListObjective() {
 		return listObjective;
@@ -142,7 +140,6 @@ public class DataBase {
 		return removedObjective;
 	}
 	
-	// =================================== KEY RESULT =================================
 
 	public boolean addListKeyResult(KeyResult keyResult) {
 
