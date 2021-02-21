@@ -19,9 +19,8 @@ public class Signup implements Action {
 		
 		DataBase dataBase = new DataBase();
 		String    retorno = "redirect:?action=SignupForm";
-		int sequencialKey = (int) Math.random();
 		
-		if (dataBase.addListUser(new User(sequencialKey,request.getParameter("name"),request.getParameter("email"),request.getParameter("password")))) {
+		if (dataBase.addListUser(new User(request.getParameter("name"),request.getParameter("email"),request.getParameter("password")))) {
 
 			List<User> listUser = dataBase.getListUser();			
 			User 		  userA = new User();

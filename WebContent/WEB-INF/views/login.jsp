@@ -21,7 +21,7 @@
 			<div class="input-group-prepend">
 			  <div class="input-group-text">@</div>
 			</div>
-			<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="user@email.com"  name="email">
+			<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="user@email.com"  name="email" value="${email}">
 		</div>
 
 		<div class="input-group mb-2">

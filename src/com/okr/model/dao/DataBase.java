@@ -17,27 +17,27 @@ public class DataBase {
 	private static List<KeyResult> listKeyResult = new ArrayList<>();
 	private static int sequencialKeyUser = 1;
 	
-	static { 
-		
-		User  userFirst = new User(sequencialKeyUser++,"Test","test@test.com","123");
-		User usersecond = new User(sequencialKeyUser++,"A","a@a.com","321");
-		
-		listUser.add(userFirst);
-		listUser.add(usersecond);
-		
-		Objective  objectiveFirst = new Objective("Concluir a formação Spring Framework da Alura", userFirst);
-		Objective objectiveSecond = new Objective("Concluir a formação Anglular da Alura", usersecond);
-		Objective  objectiveThird = new Objective("Concluir a formação Anglular da NodeJS", usersecond);
-		
-		listObjective.add(objectiveFirst);
-		listObjective.add(objectiveSecond);
-		listObjective.add(objectiveThird);
-		
-		KeyResult keyResultFirst = new KeyResult("Concluir 2 cursos de Servlet", objectiveFirst.getId(), objectiveFirst.getUser());
-		
-		listKeyResult.add(keyResultFirst);
-		objectiveFirst.setListKeyResult(listKeyResult);
-	}
+//	static { 
+//		
+//		User  userFirst = new User(sequencialKeyUser++,"Test","test@test.com","123");
+//		User usersecond = new User(sequencialKeyUser++,"A","a@a.com","321");
+//		
+//		listUser.add(userFirst);
+//		listUser.add(usersecond);
+//		
+//		Objective  objectiveFirst = new Objective("Concluir a formação Spring Framework da Alura", userFirst);
+//		Objective objectiveSecond = new Objective("Concluir a formação Anglular da Alura", usersecond);
+//		Objective  objectiveThird = new Objective("Concluir a formação Anglular da NodeJS", usersecond);
+//		
+//		listObjective.add(objectiveFirst);
+//		listObjective.add(objectiveSecond);
+//		listObjective.add(objectiveThird);
+//		
+//		KeyResult keyResultFirst = new KeyResult("Concluir 2 cursos de Servlet", objectiveFirst.getId(), objectiveFirst.getUser());
+//		
+//		listKeyResult.add(keyResultFirst);
+//		objectiveFirst.setListKeyResult(listKeyResult);
+//	}
 	
 	public boolean addListUser(User user) {
 		
