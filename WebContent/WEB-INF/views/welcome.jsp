@@ -9,7 +9,7 @@
 <c:url value="/?action=KeyResultFormUpdate" var="linkKeyResultFormUpdate"/>
 <c:url value="/?action=KeyResultDelete" 	var="linkKeyResultDelete"/>
 <c:url value="/?action=StrategyForm" 		var="linkStrategyForm"/>
-<c:url value="/?action=Logout" var="linkLogout"/>
+<c:url value="/?action=Logout" 				var="linkLogout"/>
 <c:import url="header.jsp"></c:import>
 
 <div class="container">
@@ -35,37 +35,42 @@
 		</div>
 	</c:if>
 
-	<c:forEach items="${listObjective}" var="objective">
-	<div class="card text-center">
-		<div class="card-header">
-			<h5 class="card-title"> <i class="fa fa-rocket" aria-hidden="true"></i> Objective ${objective.id}</h5>
-		</div>
-		<div class="card-body">
-		  <p class="card-text">${objective.description}</p>
-		  
-		  <c:forEach items="${objective.listKeyResult}" var="keyResult">
-		  <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<div class="card-header"><i class="fa fa-key" aria-hidden="true"></i></div>
+	<c:if test="${listObjective.size() > 0}">
+		<c:forEach items="${listObjective}" var="objective">
+		<div class="card text-center">
+			<div class="card-header">
+				<h5 class="card-title"> <i class="fa fa-rocket" aria-hidden="true"></i> Objective ${objective.id}</h5>
+			</div>
 			<div class="card-body">
-			  <h5 class="card-title">Key Result ${keyResult.id}</h5>
-			  <p class="card-text">${keyResult.description}</p>			  
+			<p class="card-text">${objective.description}</p>
+			
+			<c:forEach items="${objective.listKeyResult}" var="keyResult">
+			<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+				<div class="card-header"><i class="fa fa-key" aria-hidden="true"></i></div>
+				<div class="card-body">
+				<h5 class="card-title">Key Result ${keyResult.id}</h5>
+				<p class="card-text">${keyResult.description}</p>			  
+				</div>
+				<div class="card-footer text-right">
+					<a href="${linkKeyResultFormUpdate}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+					<a href="${linkKeyResultDelete}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-trash" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			</c:forEach>
+			<a href="${linkKeyResultForm}&id=${objective.id}" class="btn btn-outline-dark"><i class="fa fa-plus" aria-hidden="true"></i>New</a>
+
 			</div>
 			<div class="card-footer text-right">
-				<a href="${linkKeyResultFormUpdate}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-				<a href="${linkKeyResultDelete}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-trash" aria-hidden="true"></i></a>
+				<a href="${linkObjectiveFormUpdate}&id=${objective.id}" class="btn btn-outline-dark"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+				<a href="${linkObjectiveDelete}&id=${objective.id}"     class="btn btn-outline-dark"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 			</div>
-		  </div>
-		  </c:forEach>
-		  <a href="${linkKeyResultForm}&id=${objective.id}" class="btn btn-outline-dark"><i class="fa fa-plus" aria-hidden="true"></i>New</a>
-
 		</div>
-		<div class="card-footer text-right">
-			<a href="${linkObjectiveFormUpdate}&id=${objective.id}" class="btn btn-outline-dark"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-			<a href="${linkObjectiveDelete}&id=${objective.id}"     class="btn btn-outline-dark"><i class="fa fa-trash" aria-hidden="true"></i></a> 
-		</div>
-	  </div>
-	  <br>
-	</c:forEach>
+		<br>
+		</c:forEach> 
+	</c:if>
+	<c:if test="${listObjective.size() == 0}"> 
+		You have no goals created!
+	</c:if>
 </div>
 
 <c:import url="footer.jsp"></c:import>
