@@ -1,14 +1,18 @@
 package com.okr.model.dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+//import com.mysql.jdbc.Driver;
 
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.KeyResult;
 import com.okr.model.bean.User;
-
-import jdk.nashorn.internal.runtime.ListAdapter;
 
 public class DataBase {
 
@@ -16,29 +20,28 @@ public class DataBase {
 	private static List<Objective> listObjective = new ArrayList<>();
 	private static List<KeyResult> listKeyResult = new ArrayList<>();
 	private static int sequencialKeyUser = 1;
-	
-//	static { 
-//		
-//		User  userFirst = new User(sequencialKeyUser++,"Test","test@test.com","123");
-//		User usersecond = new User(sequencialKeyUser++,"A","a@a.com","321");
-//		
-//		listUser.add(userFirst);
-//		listUser.add(usersecond);
-//		
-//		Objective  objectiveFirst = new Objective("Concluir a formação Spring Framework da Alura", userFirst);
-//		Objective objectiveSecond = new Objective("Concluir a formação Anglular da Alura", usersecond);
-//		Objective  objectiveThird = new Objective("Concluir a formação Anglular da NodeJS", usersecond);
-//		
-//		listObjective.add(objectiveFirst);
-//		listObjective.add(objectiveSecond);
-//		listObjective.add(objectiveThird);
-//		
-//		KeyResult keyResultFirst = new KeyResult("Concluir 2 cursos de Servlet", objectiveFirst.getId(), objectiveFirst.getUser());
-//		
-//		listKeyResult.add(keyResultFirst);
-//		objectiveFirst.setListKeyResult(listKeyResult);
-//	}
-	
+	private static Connection connection = null;
+
+	public static Connection getConnection() {
+	      if (connection != null) {
+	          return connection;
+	      } else {
+	          try {
+                  String dbDriver = "com.mysql.jdbc.Driver";
+                  String connectionUrl = "jdbc:mysql://localhost/okr?userTimezone=true&serverTimezone=UTC";
+                  String userName = "root";
+                  String password = "170292sa";
+
+                  Class.forName(dbDriver).newInstance();
+                  connection = DriverManager.getConnection(connectionUrl,userName, password);
+                  
+	          } catch (Exception e) {
+	              e.printStackTrace();
+	          }
+	          return connection;
+	      }
+	  }
+	  
 	public boolean addListUser(User user) {
 		
 		return listUser.add(user);
@@ -49,19 +52,40 @@ public class DataBase {
 		return listUser;
 	}
 	
+	@SuppressWarnings("null")
 	public User userExists(String email, String password) {
-		 
-		User user = null;
 		
-		for (User itemUser : listUser) {
-			
-			if ((itemUser.getEmail().equals(email)) && (itemUser.getPassword().equals(password))) {
-
-				user = itemUser;
+		ResultSet resultSet = null;
+		User 		   user = new User();
+		Connection connection = null;
+		
+		try {
+			connection = getConnection();
+			Statement statement = connection.createStatement();
+			String 			sql = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+password+"';";	
+			statement.execute(sql);
+			resultSet = statement.getResultSet();
+			while(resultSet.next()) {
+				
+				user = new User(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
+				
 			}
-		} 
+			
+
+//			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
-		return user;
+		if ((user.getEmail().equals(email)) && (user.getPassword().equals(password))) {
+
+			return user;
+		}else {
+
+			return null;
+		}
 	}
 
 	public List<Objective> getListObjective() {

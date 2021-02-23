@@ -34,6 +34,7 @@ public class Signup implements Action {
 			}
 
 			request.setAttribute("email", userA.getEmail());	
+			request.setAttribute("password", userA.getPassword());	
 			
 			retorno = "forward:login.jsp";
 			

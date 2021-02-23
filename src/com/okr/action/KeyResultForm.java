@@ -15,7 +15,7 @@ public class KeyResultForm implements Action {
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String idObjective = request.getParameter("id");
-		User 	 user = (User) request.getSession().getAttribute("user");
+		User 	 	  user = (User) request.getSession().getAttribute("user");
 		
 		request.setAttribute("userId", user.getId());
 		request.setAttribute("idObjective", idObjective);

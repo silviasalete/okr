@@ -51,7 +51,10 @@ public class Objective {
 
 	@Override
 	public String toString() {
-		return "Objective [id=" + id + ", description=" + description + ", user=" + user + "]";
+		return "Objective [id=" + id + ", description=" + description + ", user=" + user + ", listKeyResult="
+				+ listKeyResult + "]";
 	}
+
+	
 	
 }
