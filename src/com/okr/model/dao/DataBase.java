@@ -19,7 +19,6 @@ public class DataBase {
 	private static List<User> listUser = new ArrayList<>();
 	private static List<Objective> listObjective = new ArrayList<>();
 	private static List<KeyResult> listKeyResult = new ArrayList<>();
-	private static int sequencialKeyUser = 1;
 	private static Connection connection = null;
 
 	public static Connection getConnection() {
@@ -51,8 +50,7 @@ public class DataBase {
 	public List<User> getListUser() {
 		return listUser;
 	}
-	
-	@SuppressWarnings("null")
+	 
 	public User userExists(String email, String password) {
 		
 		ResultSet resultSet = null;
@@ -65,21 +63,22 @@ public class DataBase {
 			String 			sql = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+password+"';";	
 			statement.execute(sql);
 			resultSet = statement.getResultSet();
+			
 			while(resultSet.next()) {
 				
 				user = new User(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
 				
 			}
 			
-
 //			connection.close();
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
 		
-		if ((user.getEmail().equals(email)) && (user.getPassword().equals(password))) {
+		if ((user.getEmail() != null) && (user.getPassword() != null)) {
 
 			return user;
 		}else {
