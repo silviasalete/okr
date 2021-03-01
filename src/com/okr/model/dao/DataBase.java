@@ -1,15 +1,12 @@
 package com.okr.model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-//import com.mysql.jdbc.Driver;
-
+import java.util.List; 
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.KeyResult;
 import com.okr.model.bean.User;
@@ -19,27 +16,7 @@ public class DataBase {
 	private static List<User> listUser = new ArrayList<>();
 	private static List<Objective> listObjective = new ArrayList<>();
 	private static List<KeyResult> listKeyResult = new ArrayList<>();
-	private static Connection connection = null;
-
-	public static Connection getConnection() {
-	      if (connection != null) {
-	          return connection;
-	      } else {
-	          try {
-                  String dbDriver = "com.mysql.jdbc.Driver";
-                  String connectionUrl = "jdbc:mysql://localhost/okr?userTimezone=true&serverTimezone=UTC";
-                  String userName = "root";
-                  String password = "170292sa";
-
-                  Class.forName(dbDriver).newInstance();
-                  connection = DriverManager.getConnection(connectionUrl,userName, password);
-                  
-	          } catch (Exception e) {
-	              e.printStackTrace();
-	          }
-	          return connection;
-	      }
-	  }
+	private ConnectionFactory connectionFactory = new ConnectionFactory();
 	  
 	public boolean addListUser(User user) {
 		
@@ -53,16 +30,15 @@ public class DataBase {
 	 
 	public User userExists(String email, String password) {
 		
-		ResultSet resultSet = null;
-		User 		   user = new User();
-		Connection connection = null;
+		ResultSet 	resultSet = null;
+		User 		   	 user = new User();
 		
 		try {
-			connection = getConnection();
+					 Connection connection = connectionFactory.getConnection();
 			Statement statement = connection.createStatement();
 			String 			sql = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+password+"';";	
 			statement.execute(sql);
-			resultSet = statement.getResultSet();
+					  resultSet = statement.getResultSet();
 			
 			while(resultSet.next()) {
 				
@@ -70,7 +46,7 @@ public class DataBase {
 				
 			}
 			
-//			connection.close();
+//			connectionFactory.close();
 
 		} catch (SQLException e) {
 			
