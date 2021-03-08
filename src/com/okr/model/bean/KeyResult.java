@@ -6,6 +6,10 @@ public class KeyResult {
 	String description;
 	int idObjective;
 	User user;
+	
+	public KeyResult() {
+		super();
+	}
 
 	public KeyResult(String description, int idObjective, User user) {
 		super();
@@ -14,6 +18,15 @@ public class KeyResult {
 		this.idObjective = idObjective;
 		this.user = user;
 	}
+	
+	public KeyResult(int id, String description, int idObjective, User user) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.idObjective = idObjective;
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}

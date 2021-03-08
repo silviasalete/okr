@@ -15,10 +15,9 @@ public class ObjectiveDelete implements Action {
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idObjective = Integer.parseInt(request.getParameter("id"));
-		User  user = (User) request.getSession().getAttribute("user"); 		
-		int idUser = user.getId();
-		
+		int   idObjective = Integer.parseInt(request.getParameter("id"));
+		User  	   	 user = (User) request.getSession().getAttribute("user"); 		
+		int		   idUser = user.getId();		
 		DataBase dataBase = new DataBase();
 
 		if (dataBase.removeObjective(idObjective, idUser)) {

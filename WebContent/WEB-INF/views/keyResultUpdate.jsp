@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="?action=UpdateKeyResult" var="linkUpdateKeyResult" />
-<c:url value="?action=Welcome" var="linkWelcome" />
+<c:url value="?action=Welcome" 		   var="linkWelcome" />
 <c:import url="header.jsp"></c:import>
 <div class="container">
 
@@ -27,8 +27,9 @@
 			<label for="description">Key Result</label>
 			<textarea class="form-control" id="description" rows="3" name="description" >${keyResult.description}</textarea>
 		</div>		
-		<input type="hidden" name="userId" value="${userId}">
-		<input type="hidden" name=keyResultId value="${keyResult.id}">
+		<input type="hidden" name="userId"    value="${userId}">
+		<input type="hidden" name="keyResultId" value="${keyResult.id}">
+		<input type="hidden" name="idObjective" value="${keyResult.idObjective"}">
 		<button type="submit" class="btn btn-dark mb-2">Update</button>
 	</form>
 </div>

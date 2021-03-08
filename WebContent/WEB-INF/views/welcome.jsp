@@ -17,7 +17,7 @@
 	<nav class="navbar navbar-light border-bottom">
 		<div class="navbar-brand">
 			<a href="#">
-				<img src="img/alvo72x76.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+				<img src="img/alvo72x76.png" width="30" height="30" class="d-inline-block align-top" alt="Imagem de um alvo com uma flecha" loading="lazy">
 			</a>
 		</div>
 		<h3>OKR</h3>
@@ -52,8 +52,8 @@
 				<p class="card-text">${keyResult.description}</p>			  
 				</div>
 				<div class="card-footer text-right">
-					<a href="${linkKeyResultFormUpdate}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-					<a href="${linkKeyResultDelete}&id=${keyResult.id}" class="btn btn-outline-light"><i class="fa fa-trash" aria-hidden="true"></i></a>
+					<a href="${linkKeyResultFormUpdate}&idKeyResult=${keyResult.id}&idObjective=${objective.id}" class="btn btn-outline-light"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+					<a href="${linkKeyResultDelete}&idKeyResult=${keyResult.id}&idObjective=${objective.id}"     class="btn btn-outline-light"><i class="fa fa-trash"  aria-hidden="true"></i></a>
 				</div>
 			</div>
 			</c:forEach>

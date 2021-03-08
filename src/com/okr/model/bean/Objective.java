@@ -16,6 +16,13 @@ public class Objective {
 		this.description = description;
 		this.user = user;
 	}
+
+	public Objective(int id, String description, User user) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.user = user;
+	}
 	
 	public int getId() {
 		return id;

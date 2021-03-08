@@ -6,16 +6,6 @@
 <c:import url="header.jsp"></c:import>
 
 <div class="container">
- 
-	
-	<!-- <form action="${signup}" method="post">
-		Name: <input type="text" name="name"> <br>
-		E-mail: <input type="text" name="email"> <br>
-		Password: <input type="password" name="password" value="123"> <br>
-		<a href="${linkBack}">Back</a> 
-		<input type="submit" value="Signup">
-	</form>
-	<a href="${linkLogin}">Login</a>  -->
 	<form class="form-signin" action="${signup}" method="post"> 
 		<h1 class="h1 mb-3 font-weight-normal ">
 			<a href="${linkBack}" class="text-decoration-none">

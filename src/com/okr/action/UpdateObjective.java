@@ -14,9 +14,10 @@ public class UpdateObjective implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String description = request.getParameter("description");
-		String objectiveId = request.getParameter("objectiveId");
-		DataBase dataBase = new DataBase();
+		
+		String  description = request.getParameter("description");
+		String  objectiveId = request.getParameter("objectiveId");
+		DataBase   dataBase = new DataBase();
 		Objective objective = dataBase.getObjectiveById(Integer.parseInt(objectiveId));
 		objective.setDescription(description);
 		

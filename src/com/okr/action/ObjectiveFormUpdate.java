@@ -18,7 +18,7 @@ public class ObjectiveFormUpdate implements Action {
 		
 		User 	 	   user = (User) request.getSession().getAttribute("user");
 		DataBase   database = new DataBase();
-		Objective 		   objective = database.getObjectiveById(Integer.parseInt(request.getParameter("id")));
+		Objective objective = database.getObjectiveById(Integer.parseInt(request.getParameter("id")));
 		
 		request.setAttribute("userId", user.getId());
 		request.setAttribute("objective", objective);

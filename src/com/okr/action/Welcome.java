@@ -18,11 +18,15 @@ public class Welcome implements Action {
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DataBase   dataBase = new DataBase();
-		HttpSession session = request.getSession();
-		User 		   user = (User) session.getAttribute("user");
-		List<Objective> listObjective = dataBase.getListObjectiveByUser(user);
-		
+			DataBase   			 dataBase = new DataBase();
+			HttpSession 		  session = request.getSession();
+			User 		   			 user = (User) session.getAttribute("user");
+			List<Objective> listObjective = dataBase.getListObjectiveByUser(user); 
+			
+			for (Objective objective : listObjective) {
+				objective.setListKeyResult(dataBase.getListKeyResultByObjectiveId(objective.getId(), objective.getUser().getId()));
+			}
+			
 		request.setAttribute("listObjective", listObjective);
 		
 		return "forward:welcome.jsp";

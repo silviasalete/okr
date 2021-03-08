@@ -16,15 +16,14 @@ public class NewObjective implements Action {
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String  description = request.getParameter("description");
-		String       userId = request.getParameter("userId");
-		DataBase   dataBase = new DataBase();
-		User 		   user = dataBase.getUserById(Integer.parseInt(userId));
-		Objective 		   objective = new Objective(description, user);
-		boolean objectiveCreated = dataBase.addListObjective(objective);
-		
-		String retorno = objectiveCreated?"redirect:?action=Welcome":"redirect:?action=ObjectiveForm";
-		return retorno;
+		String  description      = request.getParameter("description");
+		String       userId      = request.getParameter("userId");
+		DataBase   dataBase      = new DataBase();
+		User 		   user      = dataBase.getUserById(Integer.parseInt(userId));
+		Objective objective      = new Objective(description, user);
+		boolean objectiveCreated = dataBase.addObjective(objective);
+
+		return objectiveCreated?"redirect:?action=Welcome":"redirect:?action=ObjectiveForm";
 		 
 	}
 

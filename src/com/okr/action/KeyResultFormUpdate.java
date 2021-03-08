@@ -19,7 +19,7 @@ public class KeyResultFormUpdate implements Action {
 		request.setAttribute("userId",user.getId());
 		DataBase dataBase = new DataBase();
 		
-		request.setAttribute("keyResult",dataBase.getKeyResultById(Integer.parseInt(request.getParameter("id"))));
+		request.setAttribute("keyResult",dataBase.getKeyResultById(Integer.parseInt(request.getParameter("idKeyResult")))); 
 		
 		return "forward:keyResultUpdate.jsp";
 	}
