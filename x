@@ -1,0 +1,146 @@
+[33mcommit 8aa55a8619b949fabb67e0d6c749b8b048a7f9f4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 6b16059 07c8192
+Author: Silvia Salete <silviasalete@users.noreply.github.com>
+Date:   Wed Mar 10 23:01:50 2021 -0300
+
+    Merge pull request #1 from silviasalete/feature/avoiding-sql-injection
+    
+    :bug: Resolved bug of select key result
+
+[33mcommit 07c8192c7a258e7a047799081317228d23f3cd64[m[33m ([m[1;31morigin/feature/avoiding-sql-injection[m[33m)[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Wed Mar 10 22:58:10 2021 -0300
+
+    :bug: Resolved bug of select key result
+
+[33mcommit 6b160597a1a4ab080f98c52c82d973a11fbd5d6e[m[33m ([m[1;32mdevelopment[m[33m)[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Mon Mar 8 20:26:54 2021 -0300
+
+    :gift: Release 0.1.0
+
+[33mcommit 3171eb93dec4bcfe59cd78a7d0d32858cd821f2f[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Mon Mar 1 19:49:39 2021 -0300
+
+    :rocket: Created conncetion factory
+
+[33mcommit 64c8187ccb6244b961e0a9827f1ca4715776a446[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sun Feb 28 17:20:58 2021 -0300
+
+    :bug: Resolved user no exists bug
+
+[33mcommit 90826305589fb48688144781513fb531f24ef6cf[m[33m ([m[1;33mtag: v0.1.0[m[33m)[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Mon Feb 22 21:07:43 2021 -0300
+
+    :gift: Implemented database connection
+
+[33mcommit 0baca4b6e7cdbdd6b40668b2af322b94c7f2978f[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sun Feb 21 15:53:19 2021 -0300
+
+    :rocket: Inserted message of 0 objectives in welcome page
+
+[33mcommit ef0a215202a2a9dabbf6181f5ef49e1a964e77c0[m
+Author: C1310417 Silvia Salete da Costa Gomes <c1310417@interno.bb.com.br>
+Date:   Sun Feb 21 15:25:08 2021 -0300
+
+    :bug: Resolved id user bug
+
+[33mcommit b4d88e536600c098a88789c73dbe46a02b38c090[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Fri Feb 19 22:27:34 2021 -0300
+
+    :rocket: Removed comment DataBase class
+
+[33mcommit 9bd2d5251a1a28dc73b852c384b26e464130d08b[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Thu Feb 18 09:55:26 2021 -0300
+
+    :rocket: Implemented Frontend of Key Result and Objective pages
+
+[33mcommit c0bd9e5f0b38b7c7cf5b52b3a1d3ea7f69ae7399[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Wed Feb 17 21:11:01 2021 -0300
+
+    :rocket: Implemented Frontend Welcome page
+
+[33mcommit 9fdecc3e1684e34f357228203e82f767a23a5a92[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Wed Feb 17 17:05:50 2021 -0300
+
+    :rocket: Implemented Bootstrap in project
+
+[33mcommit f871b8b779970c261e4284ef7df74a288a7275c5[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Tue Feb 16 13:26:26 2021 -0300
+
+    :rocket: Implemented CRUD of key result
+
+[33mcommit 3adfaaf22e185f0d90979a632463649f2e5400e0[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Mon Feb 15 17:02:47 2021 -0300
+
+    :rocket: Implemented CRUD of goal
+
+[33mcommit 99edf9885519db87ed41943f7e45eeed8a5d3a23[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sun Feb 14 18:50:22 2021 -0300
+
+    :green_heart: Updated gitignore
+
+[33mcommit f4179cdae0789b797ddbc88b9f560e5c235093d2[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sun Feb 14 18:43:01 2021 -0300
+
+    :lock: Implemented authorization filter
+
+[33mcommit 4726eceeedf4be77c69f0a7e8e1836175b85005a[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sun Feb 14 17:31:19 2021 -0300
+
+    :lock: Implemented user session
+
+[33mcommit 8d4d91bad2921d4ac9c20c6ea940f191e95498b5[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Sat Feb 13 16:36:10 2021 -0300
+
+    :rocket: Redirect from signup to login with parameter email
+
+[33mcommit e1c7eb760a05527c6b2aeb085c721bbf5ec88db9[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Fri Feb 12 13:13:32 2021 -0300
+
+    :rocket: Created the functionality to register a new user
+
+[33mcommit 02c01da75f1be7e6410333cad38c71a70fc1673f[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Thu Feb 11 11:46:16 2021 -0300
+
+    :rocket: Created package model and login class and database class
+
+[33mcommit e76ff5be48a33384ddfcc2a6256e80befcba782f[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Wed Feb 10 17:53:03 2021 -0300
+
+    :rocket: Created servlet and view signup
+
+[33mcommit b24b9d581c4e37184117c5ed9f734cbdd3dc358d[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Tue Feb 9 17:58:28 2021 -0300
+
+    :rocket: Created views login and home
+
+[33mcommit b72d7f98f4d9fc2b74c3a8b7e795d0b1978491bc[m
+Author: silviasalete <silvia.samtech@gmail.com>
+Date:   Tue Feb 9 15:59:47 2021 -0300
+
+    :tada: Commit First
+
+[33mcommit 1bce1ae3b549265ce1dcc299b1375ebc6f4dd293[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Silvia Salete <silviasalete@users.noreply.github.com>
+Date:   Tue Feb 9 15:36:05 2021 -0300
+
+    Initial commit
