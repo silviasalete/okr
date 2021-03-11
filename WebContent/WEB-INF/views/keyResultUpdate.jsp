@@ -29,7 +29,7 @@
 		</div>		
 		<input type="hidden" name="userId"    value="${userId}">
 		<input type="hidden" name="keyResultId" value="${keyResult.id}">
-		<input type="hidden" name="idObjective" value="${keyResult.idObjective"}">
+		<input type="hidden" name="idObjective" value="${keyResult.idObjective}">
 		<button type="submit" class="btn btn-dark mb-2">Update</button>
 	</form>
 </div>
