@@ -21,14 +21,16 @@
 			<div class="input-group-prepend">
 			  <div class="input-group-text">@</div>
 			</div>
-			<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="user@email.com"  name="email" value="${email}">
+			<%-- <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="user@email.com"  name="email" value="${email}"> --%>
+			<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="user@email.com"  name="email" value="silvia.samtech@gmail.com">
 		</div>
 
 		<div class="input-group mb-2">
 			<div class="input-group-prepend">
 			  <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
 			</div>
-			<input type="password" class="form-control" id="inlineFormInputGroup" placeholder="*****"  name="password" value="${password}">
+			<%-- <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="*****"  name="password" value="${password}"> --%>
+			<input type="password" class="form-control" id="inlineFormInputGroup" placeholder="*****"  name="password" value="170292sa">
 		</div>
 		Don't have a login? <a href="${linkSignup}" >Register</a> <br>
 		<button type="submit" class="btn btn-primary">Login</button>

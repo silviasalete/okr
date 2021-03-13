@@ -12,6 +12,7 @@ import com.okr.controller.Action;
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
 import com.okr.model.dao.DataBase;
+import com.okr.utils.Utils;
 
 public class Welcome implements Action {
 
@@ -19,8 +20,11 @@ public class Welcome implements Action {
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			DataBase   			 dataBase = new DataBase();
+			Utils 				    utils = new Utils();
 			HttpSession 		  session = request.getSession();
-			User 		   			 user = (User) session.getAttribute("user");
+			User 		   			 user = (User) session.getAttribute("user"); 
+			user.setName(utils.returnNameRequired(user.getName(), 1));			
+			
 			List<Objective> listObjective = dataBase.getListObjectiveByUser(user); 
 			
 			for (Objective objective : listObjective) {

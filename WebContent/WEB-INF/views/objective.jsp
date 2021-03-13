@@ -5,7 +5,6 @@
 <c:import url="header.jsp"></c:import>
 
 <div class="container">
-
 	<nav class="navbar navbar-light border-bottom">
 		<div class="navbar-brand">
 			<a href="#">
@@ -15,17 +14,13 @@
 		<h3>OKR</h3>
 		<a href="${linkLogout}" class="text-right text-dark"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 	</nav>
+	<p class=" text-left mt-2">
+		<a href="${linkWelcome}" class="text-dark"><i class="fa fa-reply" aria-hidden="true"></i></a>
+	</p>
 	
-	<a href="${linkWelcome}" class="text-dark text-left"><i class="fa fa-reply" aria-hidden="true"></i></a>
-	<h1>New Objective</h1>
-	<!-- <form action="${linkNewObjective}" method="post">
-		Objective: <textarea name="description" rows="5" cols="50"></textarea> <br>
-		<input type="hidden" name="userId" value="${userId}">
-		<input type="submit" value="Create">
-	</form>  -->
 	<form action="${linkNewObjective}" method="post">
 		<div class="form-group">
-			<label for="description">Objective</label>
+			<label for="description"><h1>New Objective</h1></label>
 			<textarea class="form-control" id="description" rows="3" name="description" ></textarea>
 		</div>
 		<input type="hidden" name="userId" value="${userId}">		
