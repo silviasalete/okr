@@ -14,17 +14,14 @@
 		<h3>OKR</h3>
 		<a href="${linkLogout}" class="text-right text-dark"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 	</nav>
-	<a href="${linkWelcome}" class="text-dark text-left"><i class="fa fa-reply" aria-hidden="true"></i></a>
-	<h1>Update KeyResult</h1>
-	<!-- <form action="${linkUpdateKeyResult}" method="post">
-		KeyResult: <textarea name="description" rows="5" cols="50">${keyResult.description}</textarea> <br>
-		<input type="hidden" name="userId" value="${userId}">
-		<input type="hidden" name=keyResultId value="${keyResult.id}">
-		<input type="submit" value="Update">
-	</form> -->
+
+	<p class=" text-left mt-2">
+		<a href="${linkWelcome}" class="text-dark"><i class="fa fa-reply" aria-hidden="true"></i></a>
+	</p>
+	
 	<form action="${linkUpdateKeyResult}" method="post">
 		<div class="form-group">
-			<label for="description">Key Result</label>
+			<label for="description"><h1>Update KeyResult</h1></label>
 			<textarea class="form-control" id="description" rows="3" name="description" >${keyResult.description}</textarea>
 		</div>		
 		<input type="hidden" name="userId"    value="${userId}">

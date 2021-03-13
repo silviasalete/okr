@@ -16,17 +16,13 @@
 		<a href="${linkLogout}" class="text-right text-dark"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 	</nav>
 	
-	<a href="${linkWelcome}" class="text-dark text-left"><i class="fa fa-reply" aria-hidden="true"></i></a>
-	<h1>Update Objective</h1>
-	<!-- <form action="${linkUpdateObjective}" method="post">
-		Objective: <textarea name="description" rows="5" cols="50">${objective.description}</textarea> <br>
-		<input type="hidden" name="userId" value="${userId}">
-		<input type="hidden" name=objectiveId value="${objective.id}">
-		<input type="submit" value="Update">
-	</form> -->
+	<p class=" text-left mt-2">
+		<a href="${linkWelcome}" class="text-dark"><i class="fa fa-reply" aria-hidden="true"></i></a>
+	</p>
+
 	<form action="${linkUpdateObjective}" method="post">
 		<div class="form-group">
-			<label for="description">Objective</label>
+			<label for="description"><h1>Update Objective</h1></label>
 			<textarea class="form-control" id="description" rows="3" name="description" >${objective.description}</textarea>
 		</div>		
 		<input type="hidden" name="userId" value="${userId}">
