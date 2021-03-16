@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.okr.controller.Action;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.UserDAO;
 
 public class Login implements Action {
 
@@ -19,10 +19,10 @@ public class Login implements Action {
 		String    email = request.getParameter("email");
 		String password = request.getParameter("password"); 
 				
-		DataBase dataBase = new DataBase();
+		UserDAO userDAO = new UserDAO();
 		
 		String redirect = "redirect:?action=LoginForm";
-		User user = dataBase.userExists(email, password);
+		User user = userDAO.userExists(email, password);
 		
 		if (user != null) {
 			

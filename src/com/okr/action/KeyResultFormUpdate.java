@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.KeyResultDAO;
 
 public class KeyResultFormUpdate implements Action {
 
@@ -17,9 +17,9 @@ public class KeyResultFormUpdate implements Action {
 		
 		User user = (User) request.getSession().getAttribute("user");
 		request.setAttribute("userId",user.getId());
-		DataBase dataBase = new DataBase();
+		KeyResultDAO keyResultDAO = new KeyResultDAO();
 		
-		request.setAttribute("keyResult",dataBase.getKeyResultById(Integer.parseInt(request.getParameter("idKeyResult")))); 
+		request.setAttribute("keyResult",keyResultDAO.getKeyResultById(Integer.parseInt(request.getParameter("idKeyResult")))); 
 		
 		return "forward:keyResultUpdate.jsp";
 	}

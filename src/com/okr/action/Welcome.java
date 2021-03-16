@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.okr.controller.Action;
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.KeyResultDAO;
+import com.okr.model.dao.ObjectiveDAO;
 import com.okr.utils.Utils;
 
 public class Welcome implements Action {
@@ -19,16 +20,17 @@ public class Welcome implements Action {
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			DataBase   			 dataBase = new DataBase();
+			KeyResultDAO keyResultDAO = new KeyResultDAO();
+			ObjectiveDAO objectiveDAO = new ObjectiveDAO();
 			Utils 				    utils = new Utils();
 			HttpSession 		  session = request.getSession();
 			User 		   			 user = (User) session.getAttribute("user"); 
 			user.setName(utils.returnNameRequired(user.getName(), 1));			
 			
-			List<Objective> listObjective = dataBase.getListObjectiveByUser(user); 
+			List<Objective> listObjective = objectiveDAO.getListObjectiveByUser(user); 
 			
 			for (Objective objective : listObjective) {
-				objective.setListKeyResult(dataBase.getListKeyResultByObjectiveId(objective.getId(), objective.getUser().getId()));
+				objective.setListKeyResult(keyResultDAO.getListKeyResultByObjectiveId(objective.getId(), objective.getUser().getId()));
 			}
 			
 		request.setAttribute("listObjective", listObjective);

@@ -2,7 +2,6 @@ package com.okr.model.dao;
 
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -25,7 +24,6 @@ public class ConnectionFactory {
 		comboPooledDataSource.setJdbcUrl(connectionUrl);
 		comboPooledDataSource.setUser(userName);
 		comboPooledDataSource.setPassword(password);
-		comboPooledDataSource.setMaxPoolSize(15);
 		this.dataSource = comboPooledDataSource;
 	}
 

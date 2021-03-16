@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.KeyResultDAO;
 
 public class KeyResultDelete implements Action {
 
 	@Override
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DataBase dataBase = new DataBase();
+		KeyResultDAO keyResultDAO = new KeyResultDAO();
 		User 		 user = (User) request.getSession().getAttribute("user");
 		String    message = "Error when delete Key Result";
 		
@@ -23,7 +23,7 @@ public class KeyResultDelete implements Action {
 		int idObjective = Integer.parseInt(request.getParameter("idObjective"));
 		int idKeuResult = Integer.parseInt(request.getParameter("idKeyResult"));
 		
-		if (dataBase.removeKeyResult(idUser, idObjective, idKeuResult)) {
+		if (keyResultDAO.removeKeyResult(idUser, idObjective, idKeuResult)) {
 			message = "Success when delete Key Result!";
 		}
 		request.setAttribute("message", message);
