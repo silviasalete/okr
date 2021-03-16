@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.okr.model.bean.KeyResult;
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
 
@@ -16,6 +17,7 @@ public class ObjectiveDAO {
 	
 	private ConnectionFactory  factory = new ConnectionFactory();
 	UserDAO 				   userDAO = new UserDAO();
+	KeyResultDAO 		  keyResultDAO = new KeyResultDAO();
 
 	public boolean addObjective(Objective objective) {		
 		
@@ -146,10 +148,25 @@ public class ObjectiveDAO {
 			
 			try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM objective WHERE ID = ? AND createdById = ?");){
 				
+				connection.setAutoCommit(false);
+				
 				preparedStatement.setInt(1, idObjective);
 				preparedStatement.setInt(2, idUser);
 				preparedStatement.execute();
 				updatedLines = preparedStatement.getUpdateCount();
+				
+				List<KeyResult> listKeyResult = keyResultDAO.getListKeyResultByObjectiveId(idObjective, idUser);
+				boolean deletedKeyResult = true;
+				for (KeyResult keyResult : listKeyResult) {
+					keyResultDAO.removeKeyResult(idUser, idObjective, keyResult.getId());
+				}
+				if (deletedKeyResult) {
+					
+					connection.commit();
+					
+				}else {
+					connection.rollback();
+				}
 
 			}
 
