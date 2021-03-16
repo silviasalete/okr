@@ -25,7 +25,7 @@ public class ConnectionFactory {
 		comboPooledDataSource.setJdbcUrl(connectionUrl);
 		comboPooledDataSource.setUser(userName);
 		comboPooledDataSource.setPassword(password);
-		
+		comboPooledDataSource.setMaxPoolSize(15);
 		this.dataSource = comboPooledDataSource;
 	}
 
