@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
 import com.okr.model.bean.Objective;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.ObjectiveDAO;
 
 public class UpdateObjective implements Action {
 
@@ -17,11 +17,11 @@ public class UpdateObjective implements Action {
 		
 		String  description = request.getParameter("description");
 		String  objectiveId = request.getParameter("objectiveId");
-		DataBase   dataBase = new DataBase();
-		Objective objective = dataBase.getObjectiveById(Integer.parseInt(objectiveId));
+		ObjectiveDAO objectiveDAO = new ObjectiveDAO();
+		Objective objective = objectiveDAO.getObjectiveById(Integer.parseInt(objectiveId));
 		objective.setDescription(description);
 		
-		return dataBase.updateObjective(objective)?"redirect:?action=Welcome":"redirect:?action=ObjectiveFormUpdate";
+		return objectiveDAO.updateObjective(objective)?"redirect:?action=Welcome":"redirect:?action=ObjectiveFormUpdate";
 	}
 
 }

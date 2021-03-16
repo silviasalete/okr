@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.okr.controller.Action;
 import com.okr.model.bean.Objective;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.ObjectiveDAO;
+import com.okr.model.dao.UserDAO;
 
 public class NewObjective implements Action {
 
@@ -18,10 +19,12 @@ public class NewObjective implements Action {
 		
 		String  description      = request.getParameter("description");
 		String       userId      = request.getParameter("userId");
-		DataBase   dataBase      = new DataBase();
-		User 		   user      = dataBase.getUserById(Integer.parseInt(userId));
+		UserDAO 		 userDAO = new UserDAO();
+		ObjectiveDAO objectiveDAO = new ObjectiveDAO();
+		
+		User 		   user      = userDAO.getUserById(Integer.parseInt(userId));
 		Objective objective      = new Objective(description, user);
-		boolean objectiveCreated = dataBase.addObjective(objective);
+		boolean objectiveCreated = objectiveDAO.addObjective(objective);
 
 		return objectiveCreated?"redirect:?action=Welcome":"redirect:?action=ObjectiveForm";
 		 

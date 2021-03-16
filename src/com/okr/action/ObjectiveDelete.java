@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.okr.controller.Action;
 import com.okr.model.bean.User;
-import com.okr.model.dao.DataBase;
+import com.okr.model.dao.ObjectiveDAO;
 
 public class ObjectiveDelete implements Action {
 
@@ -18,9 +18,9 @@ public class ObjectiveDelete implements Action {
 		int   idObjective = Integer.parseInt(request.getParameter("id"));
 		User  	   	 user = (User) request.getSession().getAttribute("user"); 		
 		int		   idUser = user.getId();		
-		DataBase dataBase = new DataBase();
+		ObjectiveDAO objectiveDAO = new ObjectiveDAO();
 
-		if (dataBase.removeObjective(idObjective, idUser)) {
+		if (objectiveDAO.removeObjective(idObjective, idUser)) {
 			
 			request.setAttribute("message", "Objective Removed!");
 		}else {
