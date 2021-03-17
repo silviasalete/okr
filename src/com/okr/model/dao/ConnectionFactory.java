@@ -15,7 +15,7 @@ public class ConnectionFactory {
 	String 	    dbDriver = "com.mysql.jdbc.Driver";
     String connectionUrl = "jdbc:mysql://localhost/okr?userTimezone=true&serverTimezone=UTC";
     String 	    userName = "root";
-    String 	    password = "170292sa";
+    String 	    password = "******";
 
 	public ConnectionFactory() {
 		
