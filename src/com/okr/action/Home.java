@@ -14,6 +14,7 @@ public class Home implements Action {
 	public String performe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		return "forward:home.jsp";
+		//Teste git
 	}
 
 }

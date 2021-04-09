@@ -157,9 +157,11 @@ public class ObjectiveDAO {
 				
 				List<KeyResult> listKeyResult = keyResultDAO.getListKeyResultByObjectiveId(idObjective, idUser);
 				boolean deletedKeyResult = true;
+				
 				for (KeyResult keyResult : listKeyResult) {
 					keyResultDAO.removeKeyResult(idUser, idObjective, keyResult.getId());
 				}
+				
 				if (deletedKeyResult) {
 					
 					connection.commit();
@@ -167,9 +169,7 @@ public class ObjectiveDAO {
 				}else {
 					connection.rollback();
 				}
-
 			}
-
 		} catch (SQLException e) {
 
 			e.printStackTrace();
